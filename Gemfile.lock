@@ -1,0 +1,10 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    osc-ruby (1.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  osc-ruby
