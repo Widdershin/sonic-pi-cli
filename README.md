@@ -4,6 +4,7 @@ Installation:
 
     git clone <repo>
     cd sonic-pi-cli
+    bundle install
     ./chmod +x ./sonic.rb
 
 Usage:
