@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'rubygems'
 require 'osc-ruby'
 
@@ -11,7 +13,7 @@ class SonicCli
   end
 
   def run
-    p client.send(osc_command)
+    client.send(osc_command)
   end
 
   private
@@ -21,8 +23,15 @@ class SonicCli
   end
 
   def osc_command
-    OSC::Message.new(RUN_COMMAND, "#{@command}\n")
+    OSC::Message.new(RUN_COMMAND, "#{@command}")
   end
 end
 
-SonicCli.new(ARGV.join(' ')).run
+def args_and_stdin
+  [
+    ARGV.join(' '),
+    $stdin.each_line.to_a.join("\n"),
+  ].join("\n")
+end
+
+SonicCli.new(args_and_stdin).run
