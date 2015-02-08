@@ -27,10 +27,16 @@ class SonicCli
   end
 end
 
+def stdin
+  unless STDIN.tty?
+    $stdin.each_line.to_a.join("\n")
+  end
+end
+
 def args_and_stdin
   [
     ARGV.join(' '),
-    $stdin.each_line.to_a.join("\n"),
+    stdin,
   ].join("\n")
 end
 
