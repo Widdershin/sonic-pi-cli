@@ -8,6 +8,8 @@ Installation
 Usage
 -----
 
+Sonic Pi must be running, as this is just a client.
+
     sonic_pi play 50
 
 or
