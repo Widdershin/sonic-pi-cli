@@ -1,8 +1,23 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    byebug (1.8.2)
+      columnize (~> 0.3.6)
+      debugger-linecache (~> 1.2.0)
+    coderay (1.0.9)
+    columnize (0.3.6)
+    debugger-linecache (1.2.0)
     eventmachine (1.0.3)
+    method_source (0.8.2)
     osc-ruby (1.1.1)
+    pry (0.9.12.2)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-byebug (1.1.2)
+      byebug (~> 1.6)
+      pry (~> 0.9.12)
+    slop (3.6.0)
 
 PLATFORMS
   ruby
@@ -10,3 +25,5 @@ PLATFORMS
 DEPENDENCIES
   eventmachine
   osc-ruby
+  pry
+  pry-byebug

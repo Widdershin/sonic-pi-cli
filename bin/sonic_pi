@@ -8,11 +8,51 @@ def stdin
   end
 end
 
-def args_and_stdin
-  [
-    ARGV.join(' '),
-    stdin,
-  ].join("\n")
+def args
+  ARGV.join(' ')
 end
 
-SonicPi.new.run(args_and_stdin)
+def args_and_stdin
+  @args_and_stdin ||= [
+    args,
+    stdin,
+  ].join("\n").strip
+end
+
+def print_help
+  puts <<-HELP
+sonic-pi-cli
+
+Usage:
+  sonic_pi <code>
+  sonic_pi stop
+  cat music.rb | sonic_pi
+  sonic_pi --help
+
+Sonic Pi must be running for this utility to work.
+You can pipe code to stdin to execute it.
+
+Options:
+  <code>  Run the given code.
+  stop    Stop all running music.
+  --help  Display this text.
+
+Made by Nick Johnstone (github.com/Widdershin/sonic-pi-cli).
+Thanks to Sam Aaron for creating Sonic Pi.
+HELP
+end
+
+def run
+  app = SonicPi.new
+
+  case args_and_stdin
+  when '--help', ''
+    print_help
+  when 'stop'
+    app.stop
+  else
+    app.run(args_and_stdin)
+  end
+end
+
+run
