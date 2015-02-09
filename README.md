@@ -11,10 +11,13 @@ Usage
 Sonic Pi must be running, as this is just a client.
 
     sonic_pi play 50
+    sonic_pi sample :loop_breakbeat, rate: 0.5
+    sonic_pi stop
 
 or
 
     echo 'sample :loop_amen' | sonic_pi
+    echo music.rb | sonic_pi
 
 or
 
@@ -24,7 +27,6 @@ or
     => true
     irb(main):002:0> SonicPi.new.run('play [50, 55, 60]')
     => 36
-
 
 License
 ------
