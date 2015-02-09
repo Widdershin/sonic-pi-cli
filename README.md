@@ -32,7 +32,7 @@ sonic-pi-cli  is released under the MIT license. See LICENSE for more details.
 Todo
 ----
 
-  [ ] Tests
-  [ ] Command line help
-  [ ] Stop command
+- [ ] Tests
+- [ ] Command line help
+- [ ] Stop command
 
