@@ -37,6 +37,6 @@ Todo
 ----
 
 - [ ] Tests
-- [ ] Command line help
-- [ ] Stop command
+- [x] Command line help
+- [x] Stop command
 
