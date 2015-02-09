@@ -1,12 +1,38 @@
 A simple and functional CLI for Sonic Pi, written in Ruby.
 
-Installation:
+Installation
+-------
 
-    git clone <repo>
-    cd sonic_rb
-    ./chmod +x ./sonic.rb
+    gem install sonic-pi-cli
 
-Usage:
+Usage
+-----
 
-    ./sonic.rb play 50
-    echo "sample :loop_amen" | ./sonic.rb
+    sonic_pi play 50
+
+or
+
+    echo 'sample :loop_amen' | sonic_pi
+
+or
+
+    $ irb
+
+    irb(main):001:0> require 'sonic_pi'
+    => true
+    irb(main):002:0> SonicPi.new.run('play [50, 55, 60]')
+    => 36
+
+
+License
+------
+
+sonic-pi-cli  is released under the MIT license. See LICENSE for more details.
+
+Todo
+----
+
+  [ ] Tests
+  [ ] Command line help
+  [ ] Stop command
+

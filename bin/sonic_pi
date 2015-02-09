@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require 'sonic_pi'
+
+def stdin
+  unless STDIN.tty?
+    $stdin.read
+  end
+end
+
+def args_and_stdin
+  [
+    ARGV.join(' '),
+    stdin,
+  ].join("\n")
+end
+
+SonicPi.new.run(args_and_stdin)
