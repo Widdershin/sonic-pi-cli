@@ -3,6 +3,8 @@ A simple and functional CLI for Sonic Pi, written in Ruby.
 Installation
 -------
 
+[![Join the chat at https://gitter.im/Widdershin/sonic-pi-cli](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Widdershin/sonic-pi-cli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
     gem install sonic-pi-cli
 
 Usage
