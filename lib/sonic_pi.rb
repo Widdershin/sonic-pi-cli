@@ -1,4 +1,4 @@
-
+require 'socket'
 require 'rubygems'
 require 'osc-ruby'
 
@@ -14,6 +14,15 @@ class SonicPi
 
   def stop
     client.send(stop_command)
+  end
+
+  def test_connection
+    begin
+      s = OSC::Server.new(PORT)
+      abort("ERROR: Sonic Pi is not listening on #{PORT} - is it running?")
+    rescue
+      # Some thing is listening on #{PORT}
+    end
   end
 
   private
