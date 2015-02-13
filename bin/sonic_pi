@@ -45,6 +45,8 @@ end
 def run
   app = SonicPi.new
 
+  app.test_connection!
+
   case args_and_stdin
   when '--help', ''
     print_help
