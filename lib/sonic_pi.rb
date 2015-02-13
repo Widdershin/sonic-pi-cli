@@ -16,12 +16,12 @@ class SonicPi
     client.send(stop_command)
   end
 
-  def test_connection
+  def test_connection!
     begin
-      s = OSC::Server.new(PORT)
+      OSC::Server.new(PORT)
       abort("ERROR: Sonic Pi is not listening on #{PORT} - is it running?")
     rescue
-      # Some thing is listening on #{PORT}
+      # everything is good
     end
   end
 
