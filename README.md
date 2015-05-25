@@ -22,7 +22,7 @@ Sonic Pi must be running, as this is just a client.
 or
 
     echo 'sample :loop_amen' | sonic_pi
-    echo music.rb | sonic_pi
+    cat music.rb | sonic_pi
 
 or
 
