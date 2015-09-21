@@ -8,7 +8,7 @@ class SonicPi
   STOP_COMMAND = "/stop-all-jobs"
   SERVER = 'localhost'
   PORT = 4557
-  GUI_ID = SecureRandom.uuid
+  GUI_ID = 'SONIC_PI_CLI'
 
   def run(command)
     client.send(run_command(command))
