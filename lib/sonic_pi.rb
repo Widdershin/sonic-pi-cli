@@ -11,18 +11,17 @@ class SonicPi
   GUI_ID = 'SONIC_PI_CLI'
 
   def run(command)
-    client.send(run_command(command))
+    send_command(RUN_COMMAND, command)
   end
 
   def stop
-    client.send(stop_command)
+    send_command(STOP_COMMAND)
   end
 
   def test_connection!
     begin
       OSC::Server.new(PORT)
       abort("ERROR: Sonic Pi is not listening on #{PORT} - is it running?")
-
     rescue
       # everything is good
     end
@@ -31,15 +30,13 @@ class SonicPi
   private
 
   def client
-    client ||= OSC::Client.new(SERVER, PORT)
+    @client ||= OSC::Client.new(SERVER, PORT)
   end
 
-  def run_command(command)
-    OSC::Message.new(RUN_COMMAND, GUI_ID, "#{command}")
+  def send_command(call_type, command=nil)
+    prepared_command = OSC::Message.new(call_type, GUI_ID, command)
+    client.send(prepared_command)
   end
 
-  def stop_command
-    OSC::Message.new(STOP_COMMAND, GUI_ID)
-  end
 end
 
