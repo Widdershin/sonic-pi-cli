@@ -3,7 +3,7 @@ sonic-pi-cli
 
 A simple command line interface for Sonic Pi, written in Ruby.
 
-**Compatible with Sonic Pi 2.7+**.
+**Requires Sonic Pi v2.7 or higher**.
 
 Installation
 -------
