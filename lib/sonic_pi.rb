@@ -37,6 +37,4 @@ class SonicPi
     prepared_command = OSC::Message.new(call_type, GUI_ID, command)
     client.send(prepared_command)
   end
-
 end
-
