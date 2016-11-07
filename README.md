@@ -38,15 +38,13 @@ License
 
 sonic-pi-cli is released under the MIT license. See LICENSE file for more details.
 
-Todo
-----
-
-- [ ] Tests
-- [x] Command line help
-- [x] Stop command
+Alternatives
+------
+[lpil/sonic-pi-tools](https://github.com/lpil/sonic-pi-tools) - written in Go, also supports viewing logs.
 
 
 Thanks to Sam Aaron for creating Sonic Pi. Official command line support is planned for Sonic Pi 3.0.
 
 For those interested, the code weighs in at around 100 lines and is stupid simple. Take a look.
 
+Al
