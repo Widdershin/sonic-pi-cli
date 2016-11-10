@@ -48,7 +48,7 @@ def run
   app.test_connection!
 
   case args_and_stdin
-  when '--help', ''
+  when '--help', '-h', ''
     print_help
   when 'stop'
     app.stop
