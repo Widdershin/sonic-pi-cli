@@ -46,5 +46,3 @@ Alternatives
 Thanks to Sam Aaron for creating Sonic Pi. Official command line support is planned for Sonic Pi 3.0.
 
 For those interested, the code weighs in at around 100 lines and is stupid simple. Take a look.
-
-Al
