@@ -1,6 +1,6 @@
 require 'socket'
 require 'rubygems'
-require 'osc-ruby'
+require 'fast_osc'
 require 'securerandom'
 
 class SonicPi

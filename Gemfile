@@ -1,4 +1,4 @@
 source "https://rubygems.org"
 
-gem "osc-ruby"
+gem "fast_osc"
 gem "eventmachine"
