@@ -40,7 +40,7 @@ sonic-pi-cli is released under the MIT license. See LICENSE file for more detail
 
 Alternatives
 ------
-[lpil/sonic-pi-tools](https://github.com/lpil/sonic-pi-tools) - written in Go, also supports viewing logs.
+[lpil/sonic-pi-tool](https://github.com/lpil/sonic-pi-tool) - written in Rust, also supports viewing logs.
 
 
 Thanks to Sam Aaron for creating Sonic Pi. Official command line support is planned for Sonic Pi 3.0.
