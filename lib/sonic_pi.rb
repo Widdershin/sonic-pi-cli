@@ -20,7 +20,8 @@ class SonicPi
 
   def test_connection!
     begin
-      OSC::Server.new(PORT)
+      socket = UDPSocket.new
+      socket.bind(nil, PORT)
       abort("ERROR: Sonic Pi is not listening on #{PORT} - is it running?")
     rescue
       # everything is good
