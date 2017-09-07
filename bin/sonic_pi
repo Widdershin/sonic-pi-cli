@@ -45,7 +45,6 @@ end
 def run
   app = SonicPi.new
 
-
   case args_and_stdin
   when '--help', '-h', ''
     print_help
