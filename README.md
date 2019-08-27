@@ -5,6 +5,8 @@ A simple command line interface for Sonic Pi, written in Ruby.
 
 **Requires Sonic Pi v2.7 or higher**.
 
+ver 0.1.3 allows compatibility with Sonic Pi v3.2: tested on Linux, Raspberry Pi and Windows
+
 Installation
 -------
 
@@ -45,4 +47,4 @@ Alternatives
 
 Thanks to Sam Aaron for creating Sonic Pi. Official command line support is planned for Sonic Pi 3.0.
 
-For those interested, the code weighs in at around 100 lines and is stupid simple. Take a look.
+For those interested, the code weighs in at around 120 lines and is stupid simple. Take a look.
