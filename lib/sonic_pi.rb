@@ -4,11 +4,16 @@ require 'osc-ruby'
 require 'securerandom'
 
 class SonicPi
+  def initialize(port=4557)
+    @port=port
+  end
+
   RUN_COMMAND = "/run-code"
   STOP_COMMAND = "/stop-all-jobs"
   SERVER = 'localhost'
-  PORT = 4557
   GUI_ID = 'SONIC_PI_CLI'
+  
+
 
   def run(command)
     send_command(RUN_COMMAND, command)
@@ -21,8 +26,8 @@ class SonicPi
   def test_connection!
     begin
       socket = UDPSocket.new
-      socket.bind(nil, PORT)
-      abort("ERROR: Sonic Pi is not listening on #{PORT} - is it running?")
+      socket.bind(nil, @port)
+      abort("ERROR: Sonic Pi is not listening on #{@port} - is it running?")
     rescue
       # everything is good
     end
@@ -31,7 +36,7 @@ class SonicPi
   private
 
   def client
-    @client ||= OSC::Client.new(SERVER, PORT)
+    @client ||= OSC::Client.new(SERVER, @port)
   end
 
   def send_command(call_type, command=nil)

@@ -8,6 +8,20 @@ def stdin
   end
 end
 
+def pvalue #get current listen port for Sonic Pi from log file
+  value= 4557 #pre new logfile format port was always 4557
+  File.open(ENV['HOME']+'/.sonic-pi/log/server-output.log','r') do |f1|
+    while l = f1.gets
+      if l.include?"Listen port:"
+        value = l.split(" ").last.to_i
+        break
+      end
+    end
+    f1.close
+  end
+  return value
+end
+
 def args
   ARGV.join(' ')
 end
@@ -28,7 +42,7 @@ Usage:
   sonic_pi stop
   cat music.rb | sonic_pi
   sonic_pi --help
-
+ 
 Sonic Pi must be running for this utility to work.
 You can pipe code to stdin to execute it.
 
@@ -43,8 +57,8 @@ HELP
 end
 
 def run
-  app = SonicPi.new
-
+  app = SonicPi.new(pvalue) #pass in port value
+ 
   case args_and_stdin
   when '--help', '-h', ''
     print_help
