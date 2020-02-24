@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-require 'sonic_pi'
+require "sonic_pi"
+
+PORT_LOG_REGEX = Regexp.compile(/Listen port:\s+(?<port>\d+)/)
 
 def stdin
   unless STDIN.tty?
@@ -8,18 +10,26 @@ def stdin
   end
 end
 
-def pvalue #get current listen port for Sonic Pi from log file
-  value= 4557 #pre new logfile format port was always 4557
-  File.open(ENV['HOME']+'/.sonic-pi/log/server-output.log','r') do |f1|
-    while l = f1.gets
-      if l.include?"Listen port:"
-        value = l.split(" ").last.to_i
-        break
-      end
+def find_port
+  port = 4557
+
+  begin
+    log_path = File.join(Dir.home, ".sonic-pi", "log", "server-output.log")
+
+    File.open(log_path, 'r') do |f|
+      port_log_entry =
+        f.each_line
+         .lazy
+         .map { |line| line[PORT_LOG_REGEX, "port"] }
+         .find { |match| !!match }
+
+      port = port_log_entry.to_i if port_log_entry
     end
-    f1.close
+  rescue Errno::ENOENT
+    # not to worry if the file doesn't exist
   end
-  return value
+
+  port
 end
 
 def args
@@ -42,7 +52,7 @@ Usage:
   sonic_pi stop
   cat music.rb | sonic_pi
   sonic_pi --help
- 
+
 Sonic Pi must be running for this utility to work.
 You can pipe code to stdin to execute it.
 
@@ -57,8 +67,8 @@ HELP
 end
 
 def run
-  app = SonicPi.new(pvalue) #pass in port value
- 
+  app = SonicPi.new(find_port)
+
   case args_and_stdin
   when '--help', '-h', ''
     print_help
