@@ -2,8 +2,6 @@
 
 require "sonic_pi"
 
-PORT_LOG_REGEX = Regexp.compile(/Listen port:\s+(?<port>\d+)/)
-
 def stdin
   unless STDIN.tty?
     $stdin.read

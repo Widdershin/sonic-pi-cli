@@ -4,6 +4,8 @@ require 'osc-ruby'
 require 'securerandom'
 
 class SonicPi
+  PORT_LOG_REGEX = Regexp.compile(/Listen port:\s+(?<port>\d+)/)
+
   def initialize(port=nil)
     @port = port || find_port
   end
