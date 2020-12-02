@@ -10,28 +10,6 @@ def stdin
   end
 end
 
-def find_port
-  port = 4557
-
-  begin
-    log_path = File.join(Dir.home, ".sonic-pi", "log", "server-output.log")
-
-    File.open(log_path, 'r') do |f|
-      port_log_entry =
-        f.each_line
-         .lazy
-         .map { |line| line[PORT_LOG_REGEX, "port"] }
-         .find { |match| !!match }
-
-      port = port_log_entry.to_i if port_log_entry
-    end
-  rescue Errno::ENOENT
-    # not to worry if the file doesn't exist
-  end
-
-  port
-end
-
 def args
   ARGV.join(' ')
 end
@@ -67,7 +45,7 @@ HELP
 end
 
 def run
-  app = SonicPi.new(find_port)
+  app = SonicPi.new
 
   case args_and_stdin
   when '--help', '-h', ''
