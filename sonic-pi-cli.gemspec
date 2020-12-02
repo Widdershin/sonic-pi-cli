@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'sonic-pi-cli'
-  s.version     = '0.1.3'
+  s.version     = '0.2.0'
   s.date        = '2019-08-26'
   s.summary     = "Sonic Pi CLI"
   s.description = "A simple command line interface for Sonic Pi"
@@ -11,5 +11,5 @@ Gem::Specification.new do |s|
   s.homepage    = 'http://rubygems.org/gems/sonic-pi-cli'
   s.license     = 'MIT'
 
-  s.add_dependency 'osc-ruby'
+  s.add_dependency 'osc-ruby', '~> 1'
 end
